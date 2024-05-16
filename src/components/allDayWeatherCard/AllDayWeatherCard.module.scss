@@ -1,0 +1,7 @@
+.elem {
+  @apply h-full flex flex-col justify-end px-2;
+  border-right: 1px solid #fff;
+  &:last-child {
+    border: none;
+  }
+}
