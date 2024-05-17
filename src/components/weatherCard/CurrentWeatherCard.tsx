@@ -9,23 +9,22 @@ export default async function CurrentWeatherCard({ weatherData }: { weatherData:
  
   return (
     <div
-      className={`${css.bgGradient} rounded-lg border border-white bg-opacity-30 text-black bg-gray-600 backdrop-blur-lg flex pt-8 px-6 pb-6 gap-7`}
+      className={`bg-gradient-to-br from-[#A6DDE0] to-[#F4D0C0] rounded-lg border border-white w-full text-black flex pt-8 px-6 pb-6 gap-7`}
     >
       <div className="basis-1/2">
         <div className="mb-9">
           <LocationCard>
-            {/*FIXME: PLACEHOLDER LOCATION*/}
             {weatherData.location.name}, {weatherData.location.country}
           </LocationCard>
         </div>
 
         <div className="mb-14">
           <h3 className="text-3xl">Weather</h3>
-          <p className="text-sm">Now</p>
+          <p className="text-sm text-gray-500">Now</p>
         </div>
         <div>
-          <div className="text-6xl font-sans mb-4 font-medium">{weatherData.current.temp_c}°C</div>
-          <div className="text-sm">Feels like {weatherData.current.feelslike_c}°C</div>
+          <div className="text-6xl font-sans mb-4 font-medium">{(weatherData.current.temp_c).toFixed(0)}°C</div>
+          <div className="text-sm text-gray-500">Feels like {weatherData.current.feelslike_c}°C</div>
         </div>
       </div>
       <div className="basis-1/2 flex flex-col justify-between">

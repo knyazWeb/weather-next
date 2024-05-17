@@ -2,6 +2,7 @@ import { RootInterface } from "@/lib/types";
 import AllDayWeatherCard from "../allDayWeatherCard/AllDayWeatherCard";
 import CustomInputSearch from "../ui/customInputSearch/CustomInputSearch";
 import CurrentWeatherCard from "../weatherCard/CurrentWeatherCard";
+import TomorrowWeatherCard from "../tomorrowWeatherCard/TomorrowWeatherCard";
 
 export default async function WeatherPanel({ weatherData }: { weatherData: RootInterface | null }) {
 
@@ -13,18 +14,26 @@ export default async function WeatherPanel({ weatherData }: { weatherData: RootI
           <CustomInputSearch />
         </div>
       </div>
-      
-      {weatherData ? 
-      <>
-      <div className="w-fit text-white">
-        <CurrentWeatherCard weatherData={weatherData} />
-      </div>
-      <div>
-        <AllDayWeatherCard />
-      </div>
-      </>
-      //FIXME: PLACEHOLDER NO DATA
-       : <div className="text-white">No data</div>}
+
+      {weatherData ? (
+        <div className="flex flex-wrap justify-between gap-7 m">
+          <div className="w-full max-w-[480px] ">
+            <CurrentWeatherCard weatherData={weatherData} />
+          </div>
+          <div className="w-full max-w-[480px] ">
+            <CurrentWeatherCard weatherData={weatherData} />
+          </div>
+          <div className="grow">
+            <AllDayWeatherCard weatherData={weatherData} />
+          </div>
+          <div className="w-full max-w-[340px] ">
+            <TomorrowWeatherCard weatherData={weatherData} />
+          </div>
+        </div>
+      ) : (
+        //FIXME: PLACEHOLDER NO DATA
+        <div className="text-white">No data</div>
+      )}
     </div>
   );
 }

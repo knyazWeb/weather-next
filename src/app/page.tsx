@@ -15,8 +15,8 @@ export default async function Main({
  
   
   return (
-    <main className={`h-screen w-screen ${css.bgImg} flex justify-center items-center`}>
-      <div className="max-w-[1024px] max-h-[1024px] w-[90%] h-[90%] rounded-lg border border-white bg-opacity-30 bg-gray-600 backdrop-blur-lg">
+    <main className={`h-screen w-full ${css.bgImg} flex justify-center items-center`}>
+      <div className="max-w-[1024px] w-full h-fit rounded-lg border border-white bg-opacity-30 bg-gray-600 backdrop-blur-lg">
         <WeatherPanel weatherData={weatherData} />
       </div>
     </main>
