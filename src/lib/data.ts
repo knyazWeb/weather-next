@@ -4,7 +4,7 @@ export async function getWeather(query: string): Promise<RootInterface | null> {
   try {
     // TODO: по возможности указать cache: no-store
     const data = await fetch(
-      `https://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY}&q=${query}&days=3&aqi=no&alerts=no`, {cache: "no-store"}
+      `https://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY}&q=${query}&days=7&aqi=no&alerts=no`, {cache: "no-store"}
     );
     if (!data.ok) {
       return null;

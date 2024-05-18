@@ -1,8 +1,9 @@
 import { RootInterface } from "@/lib/types";
 import AllDayWeatherCard from "../allDayWeatherCard/AllDayWeatherCard";
 import CustomInputSearch from "../ui/customInputSearch/CustomInputSearch";
-import CurrentWeatherCard from "../weatherCard/CurrentWeatherCard";
+import CurrentWeatherCard from "../currentWeatherCard/CurrentWeatherCard";
 import TomorrowWeatherCard from "../tomorrowWeatherCard/TomorrowWeatherCard";
+import WeekDayWeatherCard from "../weekWeatherCard/WeekWeatherCard";
 
 export default async function WeatherPanel({ weatherData }: { weatherData: RootInterface | null }) {
 
@@ -20,8 +21,8 @@ export default async function WeatherPanel({ weatherData }: { weatherData: RootI
           <div className="w-full max-w-[480px] ">
             <CurrentWeatherCard weatherData={weatherData} />
           </div>
-          <div className="w-full max-w-[480px] ">
-            <CurrentWeatherCard weatherData={weatherData} />
+          <div className="w-full max-w-[480px]">
+            <WeekDayWeatherCard weatherData={weatherData} />
           </div>
           <div className="grow">
             <AllDayWeatherCard weatherData={weatherData} />

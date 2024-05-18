@@ -2,7 +2,6 @@ import { RootInterface } from "@/lib/types";
 import Image from "next/image";
 import LocationCard from "../ui/locationCard/LocationCard";
 import StatsCard from "../ui/statsCard/StatsCard";
-import css from "./CurrentWeatherCard.module.scss";
 
 
 export default async function CurrentWeatherCard({ weatherData }: { weatherData: RootInterface }) {
@@ -23,8 +22,8 @@ export default async function CurrentWeatherCard({ weatherData }: { weatherData:
           <p className="text-sm text-gray-500">Now</p>
         </div>
         <div>
-          <div className="text-6xl font-sans mb-4 font-medium">{(weatherData.current.temp_c).toFixed(0)}°C</div>
-          <div className="text-sm text-gray-500">Feels like {weatherData.current.feelslike_c}°C</div>
+          <div className="text-6xl font-sans mb-4 font-medium">{weatherData.current.temp_c.toFixed(0)}°C</div>
+          <div className="text-sm text-gray-500 font-sans">Feels like {weatherData.current.feelslike_c}°C</div>
         </div>
       </div>
       <div className="basis-1/2 flex flex-col justify-between">
