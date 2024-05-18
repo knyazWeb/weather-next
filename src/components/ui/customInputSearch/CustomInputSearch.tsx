@@ -2,24 +2,23 @@
 
 import { Search } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
-import { useDebouncedCallback } from "use-debounce";
+import { useCallback, useState } from "react";
 
 export default function CustomInputSearch() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const { replace } = useRouter();
+  const { push } = useRouter();
   const [searchValue, setSearchValue] = useState(searchParams.get("q")?.toString());
 
-  const handleSearch = useDebouncedCallback((value) => {
+  const handleSearch = useCallback((value: string | undefined) => {
     const params = new URLSearchParams(searchParams);
     if (value) {
       params.set("q", value);
     } else {
       params.delete("q");
     }
-    replace(`${pathname}?${params.toString()}`);
-  }, 200);
+    push(`${pathname}?${params.toString()}`);
+  }, [])
 
   return (
     <div className="relative">

@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default function WeekDayWeatherCard({ weatherData }: { weatherData: RootInterface }) {
   return (
-    <div className="bg-gradient-to-br from-[#8d81c4] to-[#E6C3E3] h-full pt-3 px-3 pb-3 rounded-lg border border-white text-black overflow-hidden flex justify-between gap-3 flex-wrap">
-      <div className="w-fit h-fit flex flex-1 flex-col items-center justify-start py-5 border border-white rounded-3xl px-1 text-white bg-black bg-opacity-10">
+    <div className="bg-gradient-to-bl from-[#A6DDE0] to-[#F4D0C0] h-full pt-3 px-3 pb-3 rounded-lg border border-white text-black overflow-hidden flex justify-between gap-3 flex-wrap">
+      <div className="w-fit h-fit flex flex-1 flex-col items-center justify-start py-5 border border-white rounded-3xl px-1 text-white bg-black bg-opacity-20">
         <div className="font-bold">Today</div>
         <Image
           className="mb-2"
@@ -22,7 +22,7 @@ export default function WeekDayWeatherCard({ weatherData }: { weatherData: RootI
         return (
           <div
             key={day.date}
-            className="w-fit h-fit flex flex-col flex-1 items-center px-1 justify-start py-5 border border-white rounded-3xl text-white  bg-black bg-opacity-10"
+            className="w-fit h-fit flex flex-col flex-1 items-center px-1 justify-start py-5 border border-white rounded-3xl text-white  bg-black bg-opacity-20"
           >
             <div className="font-bold">{new Date(day.date).toLocaleDateString("en-US", { weekday: "short" })}</div>
             <Image

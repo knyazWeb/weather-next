@@ -1,12 +1,9 @@
-import { RootInterface } from "@/lib/types";
-import AllDayWeatherCard from "../allDayWeatherCard/AllDayWeatherCard";
 import CustomInputSearch from "../ui/customInputSearch/CustomInputSearch";
-import CurrentWeatherCard from "../currentWeatherCard/CurrentWeatherCard";
-import TomorrowWeatherCard from "../tomorrowWeatherCard/TomorrowWeatherCard";
-import WeekDayWeatherCard from "../weekWeatherCard/WeekWeatherCard";
+import WeatherMainContent from "../weatherMainContent/WeatherMainContent";
+import { Suspense } from "react";
+import Loader from "../loader/Loader";
 
-export default async function WeatherPanel({ weatherData }: { weatherData: RootInterface | null }) {
-
+export default async function WeatherPanel({ query }: { query: string }) {
   return (
     <div className="h-full w-full p-4">
       <div className="flex justify-between mb-4 items-center">
@@ -15,26 +12,12 @@ export default async function WeatherPanel({ weatherData }: { weatherData: RootI
           <CustomInputSearch />
         </div>
       </div>
-
-      {weatherData ? (
-        <div className="flex flex-wrap justify-between gap-7 m">
-          <div className="w-full max-w-[480px] ">
-            <CurrentWeatherCard weatherData={weatherData} />
-          </div>
-          <div className="w-full max-w-[480px]">
-            <WeekDayWeatherCard weatherData={weatherData} />
-          </div>
-          <div className="grow">
-            <AllDayWeatherCard weatherData={weatherData} />
-          </div>
-          <div className="w-full max-w-[340px] ">
-            <TomorrowWeatherCard weatherData={weatherData} />
-          </div>
-        </div>
-      ) : (
-        //FIXME: PLACEHOLDER NO DATA
-        <div className="text-white">No data</div>
-      )}
+      <Suspense
+        key={query}
+        fallback={<Loader />}
+      >
+        <WeatherMainContent query={query} />
+      </Suspense>
     </div>
   );
 }

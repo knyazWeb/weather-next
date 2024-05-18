@@ -1,6 +1,7 @@
 import "@/styles/globals.scss";
 import type { Metadata } from "next";
 import { Exo } from "next/font/google";
+import { Suspense } from "react";
 const exo = Exo({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -15,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={exo.className}>{children}</body>
+      <body className={exo.className}>
+        <Suspense fallback={<div>Loading</div>}>{children}</Suspense>
+      </body>
     </html>
   );
 }
