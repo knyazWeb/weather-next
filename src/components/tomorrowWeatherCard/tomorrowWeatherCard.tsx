@@ -18,7 +18,7 @@ export default function TomorrowWeatherCard({ weatherData }: { weatherData: Root
         </div>
         <div className="bg-gray-300 bg-opacity-10 rounded-lg">
           <Image
-            src={`https:${weatherData.current.condition.icon}`}
+            src={`https:${weatherData.forecast.forecastday[1].day.condition.icon}`}
             quality={100}
             priority={true}
             width={80}

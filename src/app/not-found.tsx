@@ -10,7 +10,8 @@ export default function Error() {
         <h2 className="text-2xl mb-2">Page not found</h2>
         <button
           className="border-white border rounded-md py-1 px-3 hover:bg-white hover:text-gray-500 transition-all duration-200 ease-in-out"
-          onClick={() => router.back()}
+          onClick={() => {
+            router.back()} }
         >
           Go back
         </button>

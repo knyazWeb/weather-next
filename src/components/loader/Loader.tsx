@@ -4,7 +4,8 @@ import css from "./Loader.module.scss";
 
 export default function Loader() {
   return (
-    <div className="flex justify-center items-center">
+    <div className="text-white flex flex-col justify-center items-center mt-5">
+      <div className="font-medium text-xl italic font-sans tracking-wider">Wait a moment...</div>
       <Image
         className={`${css.anim}`}
         src={loaderImg}

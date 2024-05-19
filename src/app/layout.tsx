@@ -1,3 +1,4 @@
+import Loader from "@/components/loader/Loader";
 import "@/styles/globals.scss";
 import type { Metadata } from "next";
 import { Exo } from "next/font/google";
@@ -17,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={exo.className}>
-        <Suspense fallback={<div>Loading</div>}>{children}</Suspense>
+        {children}
       </body>
     </html>
   );

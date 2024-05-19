@@ -21,7 +21,7 @@ export default function WeekDayWeatherCard({ weatherData }: { weatherData: RootI
     <div className="bg-gradient-to-bl from-[#A6DDE0] to-[#F4D0C0] h-full pt-3 px-3 pb-3 rounded-lg border border-white text-black overflow-hidden flex justify-between gap-3 flex-wrap">
       <div
         onClick={() => handleSearch((0).toString())}
-        className={`w-fit h-fit flex flex-1 flex-col items-center justify-start py-5 border border-white rounded-3xl px-1 text-white bg-black bg-opacity-20 cursor-pointer transition-all duration-200 ease-in-out ${
+        className={`w-fit h-fit flex flex-1 flex-col items-center  py-10 border border-white rounded-3xl px-1 text-white bg-black bg-opacity-20 cursor-pointer transition-all duration-200 ease-in-out ${
           searchParams.toString().includes( 'day')
             ? "bg-opacity-20 hover:bg-opacity-15"
             : "bg-opacity-45"
@@ -46,7 +46,7 @@ export default function WeekDayWeatherCard({ weatherData }: { weatherData: RootI
           <div
             onClick={() => handleSearch((index + 1).toString())}
             key={day.date}
-            className={`w-fit h-fit flex flex-col flex-1 items-center px-1 justify-start py-5 border border-white rounded-3xl text-white  bg-black bg-opacity-20 cursor-pointer  transition-all duration-200 ease-in-out ${
+            className={`w-fit h-fit flex flex-col flex-1 items-center px-1 justify-start  py-10 border border-white rounded-3xl text-white  bg-black bg-opacity-20 cursor-pointer  transition-all duration-200 ease-in-out ${
               searchParams.toString().includes((index + 1).toString())
                 ? "bg-opacity-45"
                 : "bg-opacity-20 hover:bg-opacity-15"
