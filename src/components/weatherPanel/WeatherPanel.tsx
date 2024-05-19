@@ -3,7 +3,7 @@ import WeatherMainContent from "../weatherMainContent/WeatherMainContent";
 import { Suspense } from "react";
 import Loader from "../loader/Loader";
 
-export default async function WeatherPanel({ query }: { query: string }) {
+export default async function WeatherPanel({ query, queryDay }: { query: string; queryDay:string }) {
   return (
     <div className="h-full w-full p-4">
       <div className="flex justify-between mb-4 items-center">
@@ -13,10 +13,13 @@ export default async function WeatherPanel({ query }: { query: string }) {
         </div>
       </div>
       <Suspense
-        key={query}
+        key={`${query}-${queryDay}`}
         fallback={<Loader />}
       >
-        <WeatherMainContent query={query} />
+        <WeatherMainContent
+          query={query}
+          queryDay={queryDay}
+        />
       </Suspense>
     </div>
   );

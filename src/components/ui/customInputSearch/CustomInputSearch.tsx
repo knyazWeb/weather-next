@@ -6,9 +6,8 @@ import { useCallback, useState } from "react";
 
 export default function CustomInputSearch() {
   const searchParams = useSearchParams();
-  const pathname = usePathname();
   const { push } = useRouter();
-  const [searchValue, setSearchValue] = useState(searchParams.get("q")?.toString());
+  const [searchValue, setSearchValue] = useState(searchParams.get("q")?.toString() || '');
 
   const handleSearch = useCallback((value: string | undefined) => {
     const params = new URLSearchParams(searchParams);
@@ -17,7 +16,7 @@ export default function CustomInputSearch() {
     } else {
       params.delete("q");
     }
-    push(`${pathname}?${params.toString()}`);
+    push(`${'/'}?${params.toString()}`);
   }, [])
 
   return (

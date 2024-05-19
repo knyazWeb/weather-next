@@ -11,8 +11,10 @@ export default function TomorrowWeatherCard({ weatherData }: { weatherData: Root
       </div>
       <div className="flex justify-between">
         <div className="self-center">
-          <div className="text-2xl font-sans font-medium">{(weatherData.forecast.forecastday[0].day.maxtemp_c).toFixed(0)}°C</div>
-          <div className="text-sm text-gray-500">{weatherData.forecast.forecastday[0].day.condition.text}</div>
+          <div className="text-2xl font-sans font-medium">
+            {weatherData.forecast.forecastday[1].day.maxtemp_c.toFixed(0)}°C
+          </div>
+          <div className="text-sm text-gray-500">{weatherData.forecast.forecastday[1].day.condition.text}</div>
         </div>
         <div className="bg-gray-300 bg-opacity-10 rounded-lg">
           <Image

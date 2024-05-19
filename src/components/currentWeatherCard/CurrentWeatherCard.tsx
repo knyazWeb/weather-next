@@ -3,12 +3,10 @@ import Image from "next/image";
 import LocationCard from "../ui/locationCard/LocationCard";
 import StatsCard from "../ui/statsCard/StatsCard";
 
-
-export default async function CurrentWeatherCard({ weatherData }: { weatherData: RootInterface }) {
- 
+export default async function CurrentWeatherCard({ weatherData }: { weatherData: RootInterface}) {
   return (
     <div
-      className={`bg-gradient-to-br from-[#A6DDE0] to-[#F4D0C0] rounded-lg border border-white w-full text-black flex pt-8 px-6 pb-6 gap-7`}
+      className={`relative bg-gradient-to-br from-[#A6DDE0] to-[#F4D0C0] rounded-lg border border-white w-full text-black flex pt-8 px-6 pb-6 gap-4`}
     >
       <div className="basis-1/2">
         <div className="mb-9">
@@ -27,29 +25,45 @@ export default async function CurrentWeatherCard({ weatherData }: { weatherData:
         </div>
       </div>
       <div className="basis-1/2 flex flex-col justify-between">
-        <div className="mx-auto">
+        <div className="mx-auto mt-4">
           <Image
             src={`https:${weatherData.current.condition.icon}`}
             quality={100}
             priority={true}
-            width={120}
-            height={120}
+            width={80}
+            height={80}
             alt=""
           />
         </div>
-        <div className="flex gap-3">
-          <StatsCard
-            header="Visability"
-            bgColor="bg-lime-300"
-          >
-            {weatherData.current.vis_km}km
-          </StatsCard>
-          <StatsCard
-            header="humidity "
-            bgColor="bg-white"
-          >
-            {weatherData.current.humidity}%
-          </StatsCard>
+        <div className="flex flex-col gap-3">
+          <div className="flex gap-3">
+            <StatsCard
+              header="Wind"
+              bgColor="bg-white"
+            >
+              {weatherData.current.wind_mph}m/s
+            </StatsCard>
+            <StatsCard
+              header="Pressure"
+              bgColor="bg-lime-300"
+            >
+              {weatherData.current.pressure_mb}mb
+            </StatsCard>
+          </div>
+          <div className="flex gap-3">
+            <StatsCard
+              header="Visibility"
+              bgColor="bg-lime-300"
+            >
+              {weatherData.current.vis_km}km
+            </StatsCard>
+            <StatsCard
+              header="humidity "
+              bgColor="bg-white"
+            >
+              {weatherData.current.humidity}%
+            </StatsCard>
+          </div>
         </div>
       </div>
     </div>

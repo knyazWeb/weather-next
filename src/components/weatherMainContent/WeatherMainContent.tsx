@@ -4,9 +4,8 @@ import CurrentWeatherCard from "../currentWeatherCard/CurrentWeatherCard";
 import TomorrowWeatherCard from "../tomorrowWeatherCard/TomorrowWeatherCard";
 import WeekDayWeatherCard from "../weekWeatherCard/WeekWeatherCard";
 
-export default async function WeatherMainContent({ query }: { query: string }) {
+export default async function WeatherMainContent({ query, queryDay }: { query: string, queryDay: string }) {
   const weatherData = await getWeather(query);
-
   return weatherData ? (
     <div className="flex flex-wrap justify-between gap-7">
       <div className="w-full max-w-[480px] ">
@@ -16,7 +15,10 @@ export default async function WeatherMainContent({ query }: { query: string }) {
         <WeekDayWeatherCard weatherData={weatherData} />
       </div>
       <div className="grow">
-        <AllDayWeatherCard weatherData={weatherData} />
+        <AllDayWeatherCard
+          weatherData={weatherData}
+          queryDay={queryDay}
+        />
       </div>
       <div className="w-full max-w-[340px] ">
         <TomorrowWeatherCard weatherData={weatherData} />
