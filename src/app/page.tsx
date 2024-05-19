@@ -3,7 +3,6 @@ import css from "./page.module.scss";
 import { Suspense } from "react";
 import Loader from "@/components/loader/Loader";
 
-export const dynamic = "force-dynamic";
 export default function Main({
   searchParams,
 }: {

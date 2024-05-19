@@ -13,6 +13,7 @@ export default function CustomInputSearch() {
     const params = new URLSearchParams(searchParams);
     if (value) {
       params.set("q", value);
+      params.delete('day')
     } else {
       params.delete("q");
     }
