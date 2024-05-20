@@ -9,7 +9,7 @@ import loaderImg from '/public/loaderImg.png';
 export default async function WeatherMainContent({ query, queryDay }: { query: string, queryDay: string }) {
   const weatherData = await getWeather(query);
   return weatherData ? (
-    <div className="flex flex-wrap justify-between gap-7">
+    <div className="flex flex-wrap justify-between gap-7 max-[1100px]:flex-col">
       <div className="w-full max-w-[480px] ">
         <CurrentWeatherCard
           weatherData={weatherData}
@@ -25,7 +25,7 @@ export default async function WeatherMainContent({ query, queryDay }: { query: s
           queryDay={queryDay}
         />
       </div>
-      <div className="w-full max-w-[340px] ">
+      <div className="w-full max-w-[340px] max-[1100px]:max-w-full ">
         <TomorrowWeatherCard weatherData={weatherData} />
       </div>
     </div>

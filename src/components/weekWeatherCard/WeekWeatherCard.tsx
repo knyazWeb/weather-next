@@ -22,11 +22,8 @@ export default function WeekDayWeatherCard({ weatherData }: { weatherData: RootI
       <div
         onClick={() => handleSearch((0).toString())}
         className={`w-fit h-fit flex flex-1 flex-col items-center  py-10 border border-white rounded-3xl px-1 text-white bg-black bg-opacity-20 cursor-pointer transition-all duration-200 ease-in-out ${
-          searchParams.toString().includes( 'day')
-            ? "bg-opacity-20 hover:bg-opacity-15"
-            : "bg-opacity-45"
-          
-        }`}
+          searchParams.toString().includes("day") ? "bg-opacity-20 hover:bg-opacity-15" : "bg-opacity-45"
+        } max-[560px]:basis-1/4`}
       >
         <div className="font-bold">Today</div>
         <Image
@@ -50,7 +47,7 @@ export default function WeekDayWeatherCard({ weatherData }: { weatherData: RootI
               searchParams.toString().includes((index + 1).toString())
                 ? "bg-opacity-45"
                 : "bg-opacity-20 hover:bg-opacity-15"
-            }`}
+            } max-[560px]:basis-1/4`}
           >
             <div className="font-bold">{new Date(day.date).toLocaleDateString("en-US", { weekday: "short" })}</div>
             <Image

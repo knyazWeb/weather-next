@@ -16,7 +16,7 @@ export default function Main({
   
   return (
     <main className={`${css.bgImg} min-h-screen w-full flex justify-center items-center `}>
-      <div className="max-w-[1024px] w-full h-fit rounded-lg border border-white bg-opacity-30 bg-gray-600 backdrop-blur-lg">
+      <div className="max-w-[1024px]  w-full h-fit rounded-lg border border-white bg-opacity-30 bg-gray-600 backdrop-blur-lg max-[1100px]:w-fit max-[1100px]:min-w-[512px] max-[560px]:min-w-fit">
         <Suspense
           key={query}
           fallback={<Loader />}
